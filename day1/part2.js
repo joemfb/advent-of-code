@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-input = fs.readFileSync('./input', 'utf-8')
+var input = fs.readFileSync(__dirname + '/input', 'utf-8')
 
 function walk(input) {
   var floor = 0
@@ -16,5 +16,7 @@ function walk(input) {
   }
 }
 
+console.log('day1 - part2')
 console.log('solution:')
 console.log('    ' + walk(input))
+console.log()

@@ -1,6 +1,6 @@
 var fs = require('fs')
 
-var input = fs.readFileSync('./input', 'utf-8')
+var input = fs.readFileSync(__dirname + '/input', 'utf-8')
 
 function walk(input) {
   var grid = {
@@ -67,6 +67,7 @@ function test() {
   })
 }
 
+console.log('day3 - part2')
 if (test()) {
   console.log('tests pass!\n')
   console.log('solution:')
@@ -74,3 +75,4 @@ if (test()) {
 } else {
   console.error('tests failed')
 }
+console.log()

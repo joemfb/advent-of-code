@@ -24,6 +24,7 @@ function test() {
   })
 }
 
+console.log('day4 - part1')
 if (test()) {
   console.log('tests pass!\n')
   console.log('solution:')
@@ -31,3 +32,4 @@ if (test()) {
 } else {
   console.error('tests failed')
 }
+console.log()

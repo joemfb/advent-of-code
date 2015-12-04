@@ -14,5 +14,7 @@ function findHashSuffix(key) {
   }
 }
 
+console.log('day4 - part2')
 console.log('solution:')
 console.log('    ' + findHashSuffix('yzbqklnj'))
+console.log()
