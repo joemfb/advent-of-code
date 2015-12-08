@@ -1,0 +1,55 @@
+root = circuit+ EOF
+
+circuit = input:(expr / atom) t:target '\n'? {
+  return {
+    input: input,
+    target: t
+  }
+}
+
+target = space '->' space s:symbol {
+  return s
+}
+
+expr = binaryExpr / unaryExpr
+
+binaryExpr = l:atom space o:binaryOp space r:atom {
+  return {
+    binary: {
+      leftOperand: l,
+      operator: o,
+      rightOperand: r
+    }
+  }
+}
+
+binaryOp = 'AND' / 'OR' / 'LSHIFT' / 'RSHIFT'
+
+unaryExpr = o:unaryOp space a:atom {
+  return {
+    unary: {
+      operator: o,
+      operand: a
+    }
+  }
+}
+
+unaryOp = 'NOT'
+
+atom = symbol / signal
+
+symbol = s:_symbol {
+  return { symbol: s }
+}
+
+signal = s:_signal {
+ return { signal: parseInt(s, 10) }
+}
+
+_signal = $ [0-9]+
+
+_symbol = $ [a-z]+
+
+space = ' '
+
+EOF = !.
